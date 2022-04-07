@@ -3,31 +3,35 @@ package com.spring.bookstore.dto.book;
 
 import javax.validation.constraints.NotNull;
 
+import com.spring.bookstore.model.Book;
+
+
 
 public class BookDto {
 
     private Integer id;
-    private @NotNull String name;
-    private @NotNull String imageURL;
+    private @NotNull String title;
+    private @NotNull String author;
     private @NotNull double price;
     private @NotNull String description;
+    private @NotNull int stockQuantity;
+    
+    public BookDto(Book book) {
+        this.setId(book.getId());
+        this.setTitle(book.getTitle());
+        this.setAuthor(book.getAuthor());
+        this.setPrice(book.getPrice());
+        this.setDescription(book.getDescription());
+        this.setStockQuantity(book.getStockQuantity());
+    }
     
 
-    /*public BookDto(Product product) {
-        this.setId(product.getId());
-        this.setName(product.getName());
-        this.setImageURL(product.getImageURL());
-        this.setDescription(product.getDescription());
-        this.setPrice(product.getPrice());
-        
-    }*/
-
-    public BookDto(@NotNull String name, @NotNull String imageURL, @NotNull double price, @NotNull String description) {
-        this.name = name;
-        this.imageURL = imageURL;
+    public BookDto(@NotNull String title, @NotNull String author, @NotNull double price, @NotNull String description,int stockQuantity) {
+        this.title = title;
+        this.author = author;
         this.price = price;
         this.description = description;
-        
+        this.stockQuantity= stockQuantity;     
     }
 
     public BookDto() {
@@ -41,37 +45,49 @@ public class BookDto {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public String getImageURL() {
-        return imageURL;
-    }
+	public String getAuthor() {
+		return author;
+	}
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 
-    public double getPrice() {
-        return price;
-    }
+	public double getPrice() {
+		return price;
+	}
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
+	public void setPrice(double price) {
+		this.price = price;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-  
+
+	public int getStockQuantity() {
+		return stockQuantity;
+	}
+
+
+	public void setStockQuantity(int stockQuantity) {
+		this.stockQuantity = stockQuantity;
+	}
+
+
+	
+    
 }

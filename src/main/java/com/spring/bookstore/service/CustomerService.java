@@ -18,6 +18,7 @@ import com.spring.bookstore.exception.AuthenticationFailException;
 import com.spring.bookstore.exception.CustomException;
 import com.spring.bookstore.model.Customer;
 import com.spring.bookstore.model.Token;
+import com.spring.bookstore.repository.BookStockRepository;
 import com.spring.bookstore.repository.CustomerRepository;
 import com.spring.bookstore.utils.Helper;
 
@@ -41,19 +42,25 @@ public class CustomerService {
 
     @Autowired
     TokenService authenticationService;
+    
+    @Autowired
+    BookStockRepository bookStockRepository;
 
     Logger logger = LoggerFactory.getLogger(CustomerService.class);
 
 
     public ResponseDto signUp(SignupDto signupDto)  throws CustomException {
-        // Check to see if the current email address has already been registered.
-        if (Helper.notNull(userRepository.findByEmail(signupDto.getEmail()))) {
+        
+    	    	
+    	// Check to see if the current email address has already been registered.
+        if (Helper.notNull(userRepository.findByEmail(signupDto.getEmail()))) { // 
             // If the email address has been registered then throw an exception.
             throw new CustomException("User already exists");
         }
         // first encrypt the password
         String encryptedPassword = signupDto.getPassword();
         try {
+        	
             encryptedPassword = encryptPassword(key, initVector, signupDto.getPassword());
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();

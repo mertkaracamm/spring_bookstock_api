@@ -13,6 +13,7 @@ import com.spring.bookstore.exception.CustomException;
 import com.spring.bookstore.model.Customer;
 import com.spring.bookstore.repository.CustomerRepository;
 import com.spring.bookstore.service.TokenService;
+import com.spring.bookstore.service.BookStockService;
 import com.spring.bookstore.service.CustomerService;
 
 import java.util.List;
@@ -29,9 +30,10 @@ public class CustomerController {
     TokenService tokenService;
 
     @Autowired
-    CustomerService userService;
+    CustomerService customerService;
+       
 
-    @GetMapping("/all")
+    @GetMapping("/allCustomer")
     public List<Customer> findAllUser(@RequestParam("token") String token) throws AuthenticationFailException {
     	tokenService.authenticate(token);
         return customerRepository.findAll();
@@ -39,13 +41,13 @@ public class CustomerController {
 
     @PostMapping("/signup")
     public ResponseDto Signup(@RequestBody SignupDto signupDto) throws CustomException {
-        return userService.signUp(signupDto);
+        return customerService.signUp(signupDto);
     }
 
-    //TODO token should be updated
+    
     @PostMapping("/signIn")
     public SignInResponseDto Signup(@RequestBody SignInDto signInDto) throws CustomException {
-        return userService.signIn(signInDto);
+        return customerService.signIn(signInDto);
     }
 
 

@@ -8,7 +8,8 @@ import com.spring.bookstore.model.CustomerOrder;
 public class CustomerOrderDto {
     private Integer id;
     private @NotNull Integer userId;
-
+    private @NotNull Integer bookId;
+    
     public CustomerOrderDto() {
     }
 
@@ -32,5 +33,13 @@ public class CustomerOrderDto {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
+
+	public Integer getBookId() {
+		return bookId;
+	}
+
+	public void setBookId(Integer bookId) {
+		this.bookId = bookId;
+	}
 
 }

@@ -16,7 +16,7 @@ public class CustomerOrder {
     private Integer id;
 
 
-    @Column(name = "create_date")
+    @Column(name = "created_date")
     private Date createdDate;
 
     @Column(name = "price")
@@ -26,6 +26,11 @@ public class CustomerOrder {
     @JsonIgnore
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
+    
+    @ManyToOne()
+    @JsonIgnore
+    @JoinColumn(name = "book_id", referencedColumnName = "id")
+    private Book book;
 
     public CustomerOrder() {
     }
@@ -67,6 +72,18 @@ public class CustomerOrder {
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+
+
+	public Book getBook() {
+		return book;
+	}
+
+
+
+	public void setBook(Book book) {
+		this.book = book;
 	}
 
 
