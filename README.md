@@ -11,7 +11,7 @@ Used Tehnologies:
     - Database Layer: PostgreSQL
     - Server Layer: HerOku
     - Build Automation: Maven
-    - Authentication: Password and token encrypt with AES algorithm with teh aid of custom key and init-vector.
+    - Authentication: Password and token encrypt with AES algorithm with the aid of custom key and init-vector.
     - Logging: Slf4j is used for logging mechanism.
     - Testing: JUnit
     - Exceptions: Custom,Global,Authentication etc.
