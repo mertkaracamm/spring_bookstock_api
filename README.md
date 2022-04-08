@@ -46,7 +46,7 @@ Data Modelling: There are 4 table so as to manage in this system: customer, toke
 Other Informations:
 
     --Application hosts on Heroku as above address. Heroku connection is managed in the project application-properties files. It is shown as the following:
-    --Swagger is used for rest endpoints structure. Swagger address is showed above.
+    --Swagger is used for rest endpoints structure. Also data modeling is in too. Swagger address is showed above.
     --In Addition to Entity jpa annotation datasource structure can also be used in tihs project. Datasource config is in config package in the project.
     
         
