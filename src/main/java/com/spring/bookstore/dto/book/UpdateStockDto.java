@@ -37,11 +37,6 @@ public class UpdateStockDto {
 	}
 
 
-
-	
-
-
-
 	public Integer getStockQuantity() {
 		return stockQuantity;
 	}

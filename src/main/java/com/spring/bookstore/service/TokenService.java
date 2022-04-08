@@ -26,7 +26,7 @@ public class TokenService {
         return repository.findTokenByCustomer(customer);
     }
 
-    public Customer getUser(String token) {
+    public Customer getCustomer(String token) {
         Token authenticationToken = repository.findTokenByToken(token);
         if (Helper.notNull(authenticationToken)) {
             if (Helper.notNull(authenticationToken.getCustomer())) {
@@ -40,7 +40,7 @@ public class TokenService {
         if (!Helper.notNull(token)) {
             throw new AuthenticationFailException(MessageStrings.AUTH_TOEKN_NOT_PRESENT);
         }
-        if (!Helper.notNull(getUser(token))) {
+        if (!Helper.notNull(getCustomer(token))) {
             throw new AuthenticationFailException(MessageStrings.AUTH_TOEKN_NOT_VALID);
         }
     }

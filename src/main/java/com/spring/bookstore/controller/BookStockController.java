@@ -1,6 +1,8 @@
 package com.spring.bookstore.controller;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +32,8 @@ import java.util.List;
 @RestController
 public class BookStockController {
 
-    
+	protected transient static Logger logger = LoggerFactory.getLogger(BookStockController.class);
+	
     @Autowired
     TokenService tokenService;
 
@@ -60,7 +63,7 @@ public class BookStockController {
     @PostMapping("/updateStock")
     public ResponseEntity<BookResponseDto> updateStock(@RequestBody UpdateStockDto updateStockDto) throws Exception {
            
-    	boolean result=bookStockService.updateStockDto(updateStockDto);
+    	boolean result=bookStockService.updateStockPriceDto(updateStockDto);
     	if (result) {
     		return new ResponseEntity<BookResponseDto>(new BookResponseDto(true, "Book has been updated"), HttpStatus.CREATED);
     	}
