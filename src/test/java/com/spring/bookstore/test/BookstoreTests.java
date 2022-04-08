@@ -18,9 +18,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.HttpClientErrorException;
 
 import com.spring.bookstore.BookstoreApplication;
+import com.spring.bookstore.dto.BookResponseDto;
+import com.spring.bookstore.dto.book.BookDto;
+import com.spring.bookstore.dto.book.BookOrderDto;
 import com.spring.bookstore.dto.customer.SignInDto;
 import com.spring.bookstore.dto.customer.SignInResponseDto;
 import com.spring.bookstore.model.Customer;
+import com.spring.bookstore.model.CustomerOrder;
 
 
 @RunWith(SpringRunner.class)
@@ -45,10 +49,10 @@ public class BookstoreTests {
 	public void testCreateSignUp() {
 		Customer customer = new Customer();
 		
-		customer.setFirstName("Mert");
-		customer.setLastName("Karaçam");
-		customer.setEmail("mert3.karacamm@gmail.com");
-		customer.setPassword("mert_123");
+		customer.setFirstName("Ali");
+		customer.setLastName("Veli");
+		customer.setEmail("ali.veli@gmail.com");
+		customer.setPassword("ali_123");
 		
 		/*customer.setFirstName("Ali");
 		customer.setLastName("Veli");
@@ -64,43 +68,63 @@ public class BookstoreTests {
 	public void testCreateSignin() {
 		SignInDto signInDto = new SignInDto();
 		
-		signInDto.setEmail("Mert");
-		signInDto.setPassword("mert_123");
+		signInDto.setEmail("ali.veli@gmail.com");
+		signInDto.setPassword("ali_123");
 		
 			
-		/*signInDto.setEmail("Mert");
-		signInDto.setPassword("mert_124");*/ //şifre kontrolü
+		/*signInDto.setEmail("ali.veli@gmail.com");
+		signInDto.setPassword("ali_124");*/ //şifre kontrolü
 		
 		ResponseEntity<SignInResponseDto> postResponse = restTemplate.postForEntity(getRootUrl() + "/customer/signIn", signInDto, SignInResponseDto.class);
 		assertNotNull(postResponse);
 		assertNotNull(postResponse.getBody());
 	}
-
-	/*@Test
-	public void testUpdateEmployee() {
-		int id = 1;
-		Employee employee = restTemplate.getForObject(getRootUrl() + "/employees/" + id, Employee.class);
-		employee.setFirstName("admin1");
-		employee.setLastName("admin2");
-
-		restTemplate.put(getRootUrl() + "/employees/" + id, employee);
-
-		Employee updatedEmployee = restTemplate.getForObject(getRootUrl() + "/employees/" + id, Employee.class);
-		assertNotNull(updatedEmployee);
+	
+	@Test
+	public void testCreateAddBook() {
+		
+		BookDto bookDto = new BookDto();
+		
+		bookDto.setTitle("Dublörün Dilemması");
+		bookDto.setAuthor("Murat Menteş");
+		bookDto.setPrice(30.00);
+		bookDto.setDescription("Dublörün Dilemması");
+		bookDto.setStockQuantity(2);
+		
+		
+		ResponseEntity<BookResponseDto> postResponse = restTemplate.postForEntity(getRootUrl() + "/book/addBook", bookDto, BookResponseDto.class);
+		assertNotNull(postResponse);
+		assertNotNull(postResponse.getBody());
+	}
+	
+	@Test
+	public void testCreateAddOrder() {
+		
+		BookOrderDto bookId= new BookOrderDto();
+		String token ="044d2fb6-c4c2-4e8f-9d64-31ed9d413a29";
+		
+		
+		bookId.setBookId(2);
+					
+		
+		ResponseEntity<BookResponseDto> getResponse = restTemplate.getForEntity(getRootUrl() + "/order/addOrder?token="+token, BookResponseDto.class);								
+		assertNotNull(getResponse);
+		assertNotNull(getResponse.getBody());
+	}
+	
+	@Test
+	public void testCreateAllOrder() {
+		
+		
+		String token ="044d2fb6-c4c2-4e8f-9d64-31ed9d413a29";
+						
+		
+		
+		ResponseEntity<CustomerOrder> getResponse = restTemplate.getForEntity(getRootUrl() + "/order/allOrders?token=\"+token", CustomerOrder.class);
+				
+		assertNotNull(getResponse);
+		assertNotNull(getResponse.getBody());
 	}
 
-	@Test
-	public void testDeleteEmployee() {
-		int id = 2;
-		Employee employee = restTemplate.getForObject(getRootUrl() + "/employees/" + id, Employee.class);
-		assertNotNull(employee);
-
-		restTemplate.delete(getRootUrl() + "/employees/" + id);
-
-		try {
-			employee = restTemplate.getForObject(getRootUrl() + "/employees/" + id, Employee.class);
-		} catch (final HttpClientErrorException e) {
-			assertEquals(e.getStatusCode(), HttpStatus.NOT_FOUND);
-		}
-	}*/
+	
 }

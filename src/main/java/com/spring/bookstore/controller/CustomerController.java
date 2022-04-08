@@ -44,13 +44,13 @@ public class CustomerController {
     }
 
     @PostMapping("/signup")
-    public ResponseDto Signup(@RequestBody SignupDto signupDto) throws CustomException {
+    public ResponseDto SignUp(@RequestBody SignupDto signupDto) throws CustomException {
         return customerService.signUp(signupDto);
     }
 
     
     @PostMapping("/signIn")
-    public SignInResponseDto Signup(@RequestBody SignInDto signInDto) throws CustomException {
+    public SignInResponseDto SignIn(@RequestBody SignInDto signInDto) throws CustomException {
         return customerService.signIn(signInDto);
     }
 
