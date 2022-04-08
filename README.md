@@ -3,7 +3,7 @@
 Project link:
 
   - ### HerOku : https://spring-bookstore-heroku.herokuapp.com
-  - ### Swagger: https://app.swaggerhub.com/apis-docs/mertkaracamm/Online_Bookstore_Web_Api_Document/1.0.0#/
+  - ### Swagger: https://app.swaggerhub.com/apis-docs/mertkaracamm/Online_BookStore_Application_WebApi/1.0.0
   
 Used Tehnologies:
   
