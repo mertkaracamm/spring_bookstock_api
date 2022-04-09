@@ -5,7 +5,8 @@ Project link:
   - ### HerOku : https://spring-bookstore-heroku.herokuapp.com  
   - ### Swagger: https://app.swaggerhub.com/apis-docs/mertkaracamm/Online_BookStore_Application_WebApi/1.0.0
   
-  
+ **Postman json and postman screenshots are also added to the repo.
+ 
 Used Tehnologies:
   
     - Business Layer : Spring boot web 2.0.5.RELEASE on Java 8/jdk 1.8 version    
