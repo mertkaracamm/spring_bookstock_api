@@ -6,7 +6,7 @@ Project link:
   - ### Swagger: https://app.swaggerhub.com/apis-docs/mertkaracamm/Online_BookStore_Application_WebApi/1.0.0
   
 Updates:  
-  - Postman json and postman screenshots are also added to the repo.
+  - Postman json file and postman screenshots are also added to the repo.
   - ER Digram is added to the repo
  
 Used Tehnologies:
