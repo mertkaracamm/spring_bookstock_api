@@ -43,7 +43,7 @@ CustomerOrderController: In this section system controls stock consistency, list
 
 
 
-Data Modelling: There are 4 table so as to manage in this system: customer, tokens,  orders, book
+Data Modelling: There are 4 table so as to manage in this system: customer, tokens,  orders, book. there are two foreign_key on the orders table.
 
 Other Informations:
 
