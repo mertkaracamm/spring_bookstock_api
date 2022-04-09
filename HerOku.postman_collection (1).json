@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "c01d2ae6-7b55-44b8-ad5b-3b3a2667acaf",
+		"name": "HerOku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SignUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Ali\",\r\n    \"lastName\": \"Veli\",\r\n    \"email\": \"ali.veli@gmail.com\",\r\n    \"password\":\"ali_123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://spring-bookstore-heroku.herokuapp.com/customer/signup",
+					"protocol": "https",
+					"host": [
+						"spring-bookstore-heroku",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"customer",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SignIn",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"email\": \"mert.karacamm@gmail.com\",\r\n    \"password\":\"mert_123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://spring-bookstore-heroku.herokuapp.com/customer/signIn",
+					"protocol": "https",
+					"host": [
+						"spring-bookstore-heroku",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"customer",
+						"signIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddBook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Dublörün Dilemması\",\r\n    \"author\": \"Murat Menteş\",\r\n    \"price\": 40.00,\r\n    \"description\":\"Dublörün Dilemması\",\r\n    \"stockQuantity\":1   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://spring-bookstore-heroku.herokuapp.com/book/addBook",
+					"protocol": "https",
+					"host": [
+						"spring-bookstore-heroku",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"book",
+						"addBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateStock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\",\r\n    \"stockQuantity\": 58,\r\n    \"price\": 20.00    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://spring-bookstore-heroku.herokuapp.com/book/updateStock",
+					"protocol": "https",
+					"host": [
+						"spring-bookstore-heroku",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"book",
+						"updateStock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AllBook",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://spring-bookstore-heroku.herokuapp.com/book/allBookInStock",
+					"protocol": "https",
+					"host": [
+						"spring-bookstore-heroku",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"book",
+						"allBookInStock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CustomerOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bookId\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://spring-bookstore-heroku.herokuapp.com/order/addOrder?token=57b41c75-c933-4aee-b51d-db72a7fb0e3d",
+					"protocol": "https",
+					"host": [
+						"spring-bookstore-heroku",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"order",
+						"addOrder"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "57b41c75-c933-4aee-b51d-db72a7fb0e3d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CustomerAllOrder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://spring-bookstore-heroku.herokuapp.com/order/allOrders?token=57b41c75-c933-4aee-b51d-db72a7fb0e3d",
+					"protocol": "https",
+					"host": [
+						"spring-bookstore-heroku",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"order",
+						"allOrders"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "57b41c75-c933-4aee-b51d-db72a7fb0e3d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CustomerOrderById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://spring-bookstore-heroku.herokuapp.com/order/2?token=57b41c75-c933-4aee-b51d-db72a7fb0e3d",
+					"protocol": "https",
+					"host": [
+						"spring-bookstore-heroku",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"order",
+						"2"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "57b41c75-c933-4aee-b51d-db72a7fb0e3d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CustomerAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://spring-bookstore-heroku.herokuapp.com/customer/allCustomer?token=57b41c75-c933-4aee-b51d-db72a7fb0e3d",
+					"protocol": "https",
+					"host": [
+						"spring-bookstore-heroku",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"customer",
+						"allCustomer"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "57b41c75-c933-4aee-b51d-db72a7fb0e3d"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
