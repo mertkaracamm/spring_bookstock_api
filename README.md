@@ -7,7 +7,7 @@ Project link:
   
 Updates:  
   - Postman json file and postman screenshots are also added to the repo.
-  - ER Digram is added to the repo
+  - ER Digram is added to the repo.
  
 Used Tehnologies:
   
